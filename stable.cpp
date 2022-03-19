@@ -114,9 +114,6 @@ int main(){
         if(tbr.length() < n/2) { cout << "INVALID INPUT, wrong size" << endl; return -1; }
         for(int v = 0; v < tbr.length(); v += 2){   
           b_prefs[i][v/2] = atoi(&tbr[v]);
-          cout << atoi(&tbr[v]) << endl;
-          cout << b_prefs[i][v/2] << endl;
-
         } 
 
         i++;
