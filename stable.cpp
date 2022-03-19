@@ -64,7 +64,7 @@ class Matching{
             cout << "============== BOYS ==============" << endl;
             for(int i = 0; i < n; i++){
                 cout << boys[i].name << ": ";
-                for(int v = 0; v < n; v++) { cout << boys[i].preflist[v] << " "; }
+                for(int v = 0; v < n; v++) { cout << girls[boys[i].preflist[v]].name << " "; }
                 cout << endl;
             }
             cout << endl;
@@ -72,7 +72,7 @@ class Matching{
             cout << "============== GIRLS ==============" << endl;
             for(int i = 0; i < n; i++){
                 cout << girls[i].name << ": ";
-                for(int v = 0; v < n; v++) { cout << girls[i].preflist[v] << " "; }
+                for(int v = 0; v < n; v++) { cout << boys[girls[i].preflist[v]].name << " "; }
                 cout << endl;
             }
         }
@@ -107,7 +107,7 @@ int main(){
     int i = 0;
     for(string x: bo){
         string tbr;
-        cout << "Enter the pref list for " << x << " delimited by spaces" << endl;
+        cout << "Enter the pref list for " << x << " delimited by spaces (starting from 0)" << endl;
         getline(cin, tbr);
 
         b_prefs[i] = (int*) malloc(sizeof(int) * n);
@@ -124,7 +124,7 @@ int main(){
     i = 0;
     for(string x: go){
         string tbr;
-        cout << "Enter the pref list for " << x << " delimited by spaces" << endl;
+        cout << "Enter the pref list for " << x << " delimited by spaces (starting from 0)" << endl;
         getline(cin, tbr);
 
         g_prefs[i] = (int*) malloc(sizeof(int) * n);
