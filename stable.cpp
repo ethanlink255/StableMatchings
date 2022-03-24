@@ -28,9 +28,8 @@ struct Pairing{
     Pairing* partner;
     int* preflist;
 
-    Pairing(string n, Pairing* p, int* pr){
+    Pairing(string n, int* pr){
         name = n;
-        partner = p;
         preflist = pr;
     }
 };
@@ -46,18 +45,20 @@ class Matching{
             n = g.size();
             boys = (Pairing*) malloc(sizeof(Pairing) * n);
             girls = (Pairing*) malloc(sizeof(Pairing) * n);
-            
             int i = 0;
             for(string x: b){
-                boys[i] = Pairing(x, nullptr, b_prefs[i]);
+		Pairing b = Pairing(x, b_prefs[i]);
+                boys[i] = b;
                 i++;
             }
 
             i = 0;
             for(string x: g){
-                girls[i] = Pairing(x, nullptr, g_prefs[i]);
+		Pairing g = Pairing(x, g_prefs[i]);
+                girls[i] = g;
                 i++;
             }
+
         }
 
         void GeneratePreferenceTables(){
